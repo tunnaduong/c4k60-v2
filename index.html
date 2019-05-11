@@ -21,7 +21,20 @@
 	</tr>
 	</table>
 	<div align="center" style="padding: 15px 25px;">
-		<input type="submit" value="CONTINUE >>">
+		<input type="submit" value="CONTINUE >>" onclick="checkAnswer()">
+		<p id="state"></p>
 	</div>
+<script>
+function checkAnswer() {
+  var answer = document.getElementsByTagName("input")[0].getAttribute("value");
+  var state;
+  if (answer = 3) {
+    state = "Correct! Let's proceed to the next level...";
+  } else {
+    state = "Wrong answer! Please try again...";
+  }
+  document.getElementById("state").innerHTML = state;
+}
+</script>
 	</body>
 </html>
