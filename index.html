@@ -1,40 +1,51 @@
+<!-- Trang web được lập trình bởi Dương Tùng Anh - C4K60 Chuyên Hà Nam -->
+<!-- Mọi thông tin chi tiết xin liên hệ https://facebook.com/tunnaduong/ -->
 <html>
 	<head>
+		<!-- Bộ mã Bootstrap 4 với giao diện Cerulean -->
+		<link rel="stylesheet" href="https://d1zq6pyjrqicyj.cloudfront.net/bnNJetTfdHsQ/eysniHlzxNSi/bootstrap.min.css">
+
+		<!-- Bộ mã jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+		<!-- Bộ mã Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+		<!-- Bộ mã JavaScript cho Bootstrap 4 -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<title>Cổng thông tin điện tử C4K60 - Chuyên Hà Nam</title>
 	</head>
 	<body>
-		<h1 align="center">Welcome to Quiz!</h1>
-		<p align="center">Answer these following question to get high points.</p>
-		<br/>
-		<br/>
-	<table border="1" align="center">
-	<tr>
-	<td>
-		<h4 align="center">Question 1:</h4>
-		<p align="center">Who is the most handsome man in the world?</p>
-		<form>
-			<input type="radio" name="author" value="1" />Tunna<br/>
-			<input type="radio" name="author" value="2" />Tùng <br/>
-			<input type="radio" name="author" value="3" />Dương Tùng Anh<br/>
-		</form>
-	</td>
-	</tr>
-	</table>
-	<div align="center" style="padding: 15px 25px;">
-		<input type="submit" value="CONTINUE >>" onclick="checkAnswer()">
-		<p id="state"></p>
-	</div>
-<script>
-function checkAnswer() {
-  var answer = document.getElementsByTagName("input")[0].getAttribute("value");
-  var state;
-  if (answer = 3) {
-    state = "Correct! Let's proceed to the next level...";
-  } else {
-    state = "Wrong answer! Please try again...";
-  }
-  document.getElementById("state").innerHTML = state;
-}
-</script>
+		<div id="hinhanh" class="carousel slide" data-ride="carousel">
+
+  		<!-- Thanh điều hướng -->
+ 		<ul class="carousel-indicators">
+ 	   	<li data-target="#hinhanh" data-slide-to="0" class="active"></li>
+    	<li data-target="#hinhanh" data-slide-to="1"></li>
+    	<li data-target="#hinhanh" data-slide-to="2"></li>
+  		</ul>
+
+  		<!-- Hình ảnh trình chiếu -->
+  		<div class="carousel-inner">
+    	<div class="carousel-item active">
+     	 <img src="cothuy.jpg" alt="Cô Thuý - Chủ nhiệm 10C4">
+    	</div>
+    	<div class="carousel-item">
+    	<img src="chicago.jpg" alt="Chicago">
+    	</div>
+    	<div class="carousel-item">
+      	<img src="ny.jpg" alt="New York">
+    </div>
+  </div>
+
+  <!-- Điều khiển trái phải -->
+  <a class="carousel-control-prev" href="#hinhanh" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#hinhanh" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
 	</body>
 </html>
