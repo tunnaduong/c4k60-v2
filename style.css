@@ -1,6 +1,6 @@
 
     .bg-cover {
-        background-image: url('cothuy.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('cothuy.jpg');
         background-size: cover;
     }
     .diemthitext {
