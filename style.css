@@ -1,4 +1,5 @@
 
     .bg-cover {
         background-image: url('cothuy.jpg');
+        background-size: cover;
     }
