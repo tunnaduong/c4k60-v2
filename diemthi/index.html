@@ -21,7 +21,8 @@
     	<link rel="stylesheet" href="https://c4k60.ga/style.css">
     	<!-- Bộ mã Font Awesome -->
     	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
+    <!-- Bộ mã Javascript lưu trữ bảng điểm và thông tin học sinh -->
+    <script src="https://raw.githubusercontent.com/tunganh03/css/master/bangdiem.js"></script>
 
 		<title>Cổng thông tin điện tử C4K60 - Chuyên Hà Nam</title>
 	</head>
@@ -52,7 +53,212 @@
 </nav>
       </div>
 <!-- Đặt mã thân trang ở đây -->
-<h3 align="center" style="color:red">Đang cập nhật...</h3>
+<h3><i class="fas fa-search"></i> Tra cứu kết quả học tập</h3>
+<div class='alert alert-warning alert-dismissible'>
+  <button class='close' data-dismiss='alert' type='button'>&#215;</button>
+  <strong>Chú ý!</strong> Danh sách này chưa đầy đủ và vẫn đang được cập nhật, hoàn thiện.
+</div>          
+<div class='container mt-3' style='width:100%'>
+  <h70>Nhập tên hoặc số thứ tự để tìm kiếm nhanh trong bảng:</h70>  
+  <input class='form-control' id='myInput' placeholder='Tìm kiếm...' type='text'/>
+  <br>
+  <table class='table table-bordered table-striped'>
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Họ và tên</th>
+        <th>Kết quả học tập</th>
+      </tr>
+    </thead>
+    <tbody id='myTable'>
+      <tr>
+            <td>1</td>
+            <td>Dương Huyền Anh</td>
+        <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;1&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Dương Tùng Anh</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;2&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Ngô Phương Anh</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;3&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Nguyễn Đạt Thái Dương</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;4&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Nguyễn Anh Bảo Hân</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;5&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Nguyễn Đặng Hải</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;6&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Bùi Thu Hiền</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;7&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Nguyễn Thuý Hiền</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;8&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Phạm Thu Hiền</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;9)' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Hồ Trung Hiếu</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;10&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Trần Thị Diệu Huyền</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;11&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Phạm Bảo Sơn Hoa</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;12&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Dư Thanh Hoài</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;13&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>Phạm Thị Thiên Hương</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;14&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Lã Kim Huệ</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;15&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Nguyễn Quang Huy</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;16&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>Nguyễn Minh Khôi</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;17&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>Lê Hoàng Tùng Lâm</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;18&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>Bùi Ngọc Lĩnh</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;19&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Lê Kim Liên</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;20&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>Đinh Thuỳ Linh</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;21&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>Nguyễn Khánh Linh</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;22&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>Nguyễn Đức Mạnh</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;23&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td>Đỗ Thảo Nguyên</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;24&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td>Đào Thu Phương</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;25&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>Vũ Minh Quang</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;26&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td>Đỗ Hồng Quân</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;27&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td>Đan Thị Phương Thảo</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;28&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>Dương Phương Thảo</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;29&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>Nguyễn Minh Thư</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;30&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>Vũ Huyền Trang</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;31&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td>Nguyễn Thị Ánh Tuyết</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;32&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>33</td>
+            <td>Trần Khánh Vân</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;33&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+          <tr>
+            <td>34</td>
+            <td>Hà Gia Văn</td>
+            <td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&apos;34&apos;),show_student_info()' type='button'><i class='fas fa-eye'/> Xem</button></a></td>
+          </tr>
+    </tbody>
+  </table>
+          </br>  
+</div>
+
+<div class='alert alert-info'>
+  <strong>Thông tin:</strong> Công cụ được phát triển bởi <a class='alert-link' href='https://facebook.com/tunnaduong'>Dương Tùng Anh</a>. Nếu có bất kỳ thắc mắc, vấn đề cần giải quyết please p.m me i will help u :)
+</div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 <!-- Đặt mã thân trang tới đây -->
       <footer class="footer">
         <p>&copy; C4K60 2019. Developed with <i class="fas fa-heart"></i> by <a href="https://facebook.com/tunnaduong/">Tung Anh Duong</a></p>
