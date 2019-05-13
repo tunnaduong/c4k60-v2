@@ -4,8 +4,11 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
-    .diemthitext {
-        color:#FFFFFF;
+    .display-3 {
+        color: white;
+    }
+    .lead {
+        color: white;
     }
     .navbar-brand{
         font-size: 2rem;
