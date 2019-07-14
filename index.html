@@ -21,7 +21,10 @@
     	<link rel="stylesheet" href="style.css">
     	<!-- Bộ mã Font Awesome -->
     	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
+<!-- widget stuff here -->
+<script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css" type="text/css" rel="stylesheet"/>
 
 		<title>Cổng thông tin điện tử C4K60 - Chuyên Hà Nam</title>
 	</head>
@@ -56,16 +59,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="/thuvienanh">Thư viện ảnh</a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="/Chat">Chat</a>
+            </li>
         </ul>
     </div>
 </nav>
       </div>
 
       <div class="jumbotron jumbotron bg-cover">
-        <h1 class="display-3 diemthitext">Đã có điểm thi</h1>
-        <p class="lead diemthitext">Tra cứu điểm thi học kỳ 2 của bạn ngay bây giờ, nhanh chóng, tiện lợi bằng công cụ tra điểm thi học kỳ 2 dành riêng cho học sinh C4K60.</p>
-        <p><a class="btn btn-lg btn-success" href="/diemthi" role="button">Tra cứu ngay</a></p>
+        <h1 class="display-3 diemthitext">Welcome to C4K60</h1>
+        <p class="lead diemthitext">Cổng thông tin điện tử 11 Chuyên Nga - THPT Chuyên Hà Nam</p>
+        <a href="#" class="btn btn-md btn-success" data-target="#ScoreModal6" data-toggle="modal" role="button"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
       </div>
 
       <div class="row marketing" style="display:block">
@@ -74,10 +79,35 @@
           <p>Chào mừng đến với cổng thông tin điện tử dành cho học sinh C4K60! Trang web này là công cụ để tra cứu dễ dàng các thông tin của lớp 11 Nga THPT Chuyên Hà Nam</p>
         </div>
       </div>
+      <!-- Modal -->
+<div class="modal fade right" id="ScoreModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalPreviewLabel"><i class="fas fa-sign-in-alt"></i> Đăng nhập tài khoản - C4K60</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<div id="okta-login-container"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
       <footer class="footer">
-        <p>&copy; C4K60 2019. Developed with <i class="fas fa-heart"></i> by <a href="https://facebook.com/tunnaduong/">Tung Anh Duong</a></p>
+        <p style="float:left">&copy; C4K60 2019. Developed with <i class="fas fa-heart"></i> by <a href="https://facebook.com/tunnaduong/">Tung Anh Duong</a></p>
+        <div style="float:right">
+        <!--Facebook-->
+        <a class="fb-ic mr-3 socialfooter" role="button" href="https://www.facebook.com/groups/c4k60/"><i class="fab fa-lg fa-facebook-f"></i></a>
+        <!--Instagram-->
+        <a class="ins-ic mr-3 socialfooter2" role="button" href="https://instagram.com/c4k60"><i class="fab fa-lg fa-instagram"></i></a>
+        </div>
       </footer>
 
     </div> <!-- /container -->
@@ -87,5 +117,51 @@
     <!-- Đặt ở cuối mã trang web để trang tải nhanh hơn -->
     <!-- IE10 viewport hack cho Surface/bug máy tính bàn Windows 8 -->
     <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- use the Okta widget to power authentication! -->
+<script type="text/javascript">
+  var oktaSignIn = new OktaSignIn({
+    baseUrl: "https://c4k60.ga",
+    clientId: "0oawmgh2ajdMrI5Bj356",
+    authParams: {
+      issuer: "https://c4k60.ga/oauth2/default",
+      responseType: ['token', 'id_token'],
+      display: 'page'
+    }
+  });
+
+  if (oktaSignIn.token.hasTokensInUrl()) {
+    oktaSignIn.token.parseTokensFromUrl(
+      // If we get here, the user just logged in.
+      function success(res) {
+        var accessToken = res[0];
+        var idToken = res[1]
+
+        oktaSignIn.tokenManager.add('accessToken', accessToken);
+        oktaSignIn.tokenManager.add('idToken', idToken);
+
+        window.location.hash='';
+        document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
+      },
+      function error(err) {
+        console.error(err);
+      }
+    );
+  } else {
+    oktaSignIn.session.get(function (res) {
+      // If we get here, the user is already signed in.
+      if (res.status === 'ACTIVE') {
+        document.getElementById("messageBox").innerHTML = "Hello, " + res.login + "! You are *still* logged in! :)";
+        return;
+      }
+      oktaSignIn.renderEl(
+        { el: '#okta-login-container' },
+        function success(res) {},
+        function error(err) {
+          console.error(err);
+        }
+      );
+    });
+  }
+</script>
 	</body>
 </html>

@@ -20,3 +20,15 @@
     text-align: left;
     font-weight: bold;
 }
+.socialfooter{
+    color:gray;
+}
+.socialfooter2{
+    color:gray;
+}
+.socialfooter:hover {
+color:367CE5;
+}
+.socialfooter2:hover {
+color:E9A92A;
+}
